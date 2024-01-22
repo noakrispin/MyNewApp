@@ -4,91 +4,81 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <style>
-        body{
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        .culc{
-            width: 240px; margin: 40px auto; background-color: lightgray;
-            padding:15px;
-            border-style:solid;
-            border-color: gray;
-        }
-      .buttonNum {
-        float: left;
-        width: 50px;
-        margin: 5px;
-        background-color: gray;
-        text-align: center;
-        padding:5px 0;
-        border-radius: 4px;
-        cursor:pointer;
-      }
-      .buttonNum:hover{
-          background-color: lightslategray;
-          color: white;
-      }
-      .button{
-        float: left;
-        width: 50px;
-        margin: 5px;
-        background-color: rgb(122, 151, 180);
-        text-align: center;
-        padding:5px 0;
-        border-radius: 4px;
-        cursor:pointer;
-      }
-      .button:hover{
-          background-color: lightslategray;
-          color: white;
-      }
-      .monitor{
-        background-color: black;
-        width: 210px;
-        padding:10px;
-        color:white;
-        margin:5px;
-        border-radius: 4px;
-      }
-        .result{
-            background-color: black;
-            width: 175px;
-            margin-left: 60px;
-            margin-top: -34px;
-            background-color: white;
-            text-align: center;
-            padding:5px 0;
-            border-radius: 4px;
-            cursor:pointer;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div style="text-align: center; font-size: 40px; color:black">
       Calculator
     </div>
     <div class="culc">
-        <div class="monitor">0</div>
-        <div class="button">AC</div>
-        <div class="button">%</div>
-        <div class="button">.</div>
-        <div class="button">+</div>
-        <div class="buttonNum">1</div>
-        <div class="buttonNum">2</div>
-        <div class="buttonNum">3</div>
-        <div class="button">-</div>
-        <div class="buttonNum">4</div>
-        <div class="buttonNum">5</div>
-        <div class="buttonNum">6</div>
-        <div class="button">*</div>
+      <div class="monitor">0</div>
+      <div class="buttonRow1">
+        <div class="button">MC</div>
+        <div class="button">MR</div>
+        <div class="button">Mּ+</div>
+        <div class="button">M-</div>
+        <div class="button">MS</div>
+        <div class="button">M*</div>
+      </div>
+
+      <div class="buttonRow">
+        <div class="button">2<sup>nd</sup></div>
+        <div class="button">π</div>
+        <div class="button">e</div>
+        <div class="button">C</div>
+        <div class="button">⌫</div>
+      </div>
+
+      <div class="buttonRow">
+        <div class="button">x<sup>2</sup></div>
+        <div class="button">1<sub>/x</sub></div>
+        <div class="button">|x|</div>
+        <div class="button">exp</div>
+        <div class="button">mod</div>
+      </div>
+
+      <div class="buttonRow">
+        <div class="button">√x</div>
+        <div class="button">(</div>
+        <div class="button">)</div>
+        <div class="button">n!</div>
+        <div class="button">&#247</div>
+      </div>
+
+      <div class="buttonRow">
+        <div class="button">x<sup>y</sup></div>
         <div class="buttonNum">7</div>
         <div class="buttonNum">8</div>
         <div class="buttonNum">9</div>
-        <div class="button">/</div>
+        <div class="button">X</div>
+      </div>
+
+      <div class="buttonRow">
+        <div class="button">10<sup>x</sup></div>
+        <div class="buttonNum">4</div>
+        <div class="buttonNum">5</div>
+        <div class="buttonNum">6</div>
+        <div class="button">-</div>
+      </div>
+
+      <div class="buttonRow">
+        <div class="button">log</div>
+        <div class="buttonNum">1</div>
+        <div class="buttonNum">2</div>
+        <div class="buttonNum">3</div>
+        <div class="button">+</div>
+      </div>
+
+      <div class="buttonRow">
+        <div class="button">ln</div>
+        <div class="buttonNum">+<sub>/-</sub></div>
         <div class="buttonNum">0</div>
-        <div style="clear: both;"></div>
+        <div class="buttonNum">.</div>
         <div class="result">=</div>
-    </div>
+      </div>
+
+      <div style="clear: both;"></div>
+    </div>  
 
     <!-- special scripts for integration in MTW gallery - must be placed at the bottom of the HTML after your code -->
     <script>
