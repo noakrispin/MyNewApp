@@ -1,185 +1,199 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div style="text-align: center; font-size: 40px; color:black">
-      Calculator
-    </div>
-    <div class="culc">
-      <div class="monitor">0</div>
-      <div class="buttonRow1">
-        <div class="button">MC</div>
-        <div class="button">MR</div>
-        <div class="button">Mּ+</div>
-        <div class="button">M-</div>
-        <div class="button">MS</div>
-        <div class="button">M*</div>
-      </div>
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Calculator</title>
+        <link rel="stylesheet" href="style.css" />
+      </head>
+      <body>
+        <div style="text-align: center; font-size: 40px; color:black">
+          Calculator
+        </div>
+        <div class="culc">
+          <div class="monitor" id="monitor">0</div>
+          <div class="buttonRow1">
+            <div class="button" onclick="clearDisplay()">MC</div>
+            <div class="button" onclick="memoryRecall()">MR</div>
+            <div class="button" onclick="memoryAdd()">Mּ+</div>
+            <div class="button" onclick="memorySubtract()">M-</div>
+            <div class="button" onclick="memoryStore()">MS</div>
+            <div class="button" onclick="memoryMultiply()">M*</div>
+          </div>
 
-      <div class="buttonRow">
-        <div class="button">2<sup>nd</sup></div>
-        <div class="button">π</div>
-        <div class="button">e</div>
-        <div class="button">C</div>
-        <div class="button">⌫</div>
-      </div>
+          <div class="buttonRow">
+            <div class="button" onclick="handlePower()">2<sup>nd</sup></div>
+            <div class="button" onclick="appendCharacter(Math.PI)">π</div>
+            <div class="button" onclick="appendCharacter(Math.E)">e</div>
+            <div class="button" onclick="clearDisplay()">C</div>
+            <div class="button" onclick="deleteLast()">⌫</div>
+          </div>
 
-      <div class="buttonRow">
-        <div class="button">x<sup>2</sup></div>
-        <div class="button">1<sub>/x</sub></div>
-        <div class="button">|x|</div>
-        <div class="button">exp</div>
-        <div class="button">mod</div>
-      </div>
+          <div class="buttonRow">
+            <div class="button" onclick="handlePower()">x<sup>2</sup></div>
+            <div class="button" onclick="calculateInverse()">1<sub>/x</sub></div>
+            <div class="button" onclick="calculateAbsolute()">|x|</div>
+            <div class="button" onclick="appendCharacter('Math.exp')">exp</div>
+            <div class="button" onclick="appendCharacter('%')">mod</div>
+          </div>
 
-      <div class="buttonRow">
-        <div class="button">√x</div>
-        <div class="button">(</div>
-        <div class="button">)</div>
-        <div class="button">n!</div>
-        <div class="button">&#247</div>
-      </div>
+          <div class="buttonRow">
+            <div class="button" onclick="appendCharacter('Math.sqrt')">√x</div>
+            <div class="button" onclick="appendCharacter('(')">(</div>
+            <div class="button" onclick="appendCharacter(')')">)</div>
+            <div class="button" onclick="calculateFactorial()">n!</div>
+            <div class="button" onclick="appendCharacter('/')">&#247;</div>
+          </div>
 
-      <div class="buttonRow">
-        <div class="button">x<sup>y</sup></div>
-        <div class="buttonNum">7</div>
-        <div class="buttonNum">8</div>
-        <div class="buttonNum">9</div>
-        <div class="button">X</div>
-      </div>
+          <div class="buttonRow">
+            <div class="button" onclick="appendCharacter('**')">x<sup>y</sup></div>
+            <div class="buttonNum" onclick="appendCharacter(7)">7</div>
+            <div class="buttonNum" onclick="appendCharacter(8)">8</div>
+            <div class="buttonNum" onclick="appendCharacter(9)">9</div>
+            <div class="button" onclick="appendCharacter('*')">X</div>
+          </div>
 
-      <div class="buttonRow">
-        <div class="button">10<sup>x</sup></div>
-        <div class="buttonNum">4</div>
-        <div class="buttonNum">5</div>
-        <div class="buttonNum">6</div>
-        <div class="button">-</div>
-      </div>
+          <div class="buttonRow">
+            <div class="button" onclick="appendCharacter('10**')">10<sup>x</sup></div>
+            <div class="buttonNum" onclick="appendCharacter(4)">4</div>
+            <div class="buttonNum" onclick="appendCharacter(5)">5</div>
+            <div class="buttonNum" onclick="appendCharacter(6)">6</div>
+            <div class="button" onclick="appendCharacter('-')">-</div>
+          </div>
 
-      <div class="buttonRow">
-        <div class="button">log</div>
-        <div class="buttonNum">1</div>
-        <div class="buttonNum">2</div>
-        <div class="buttonNum">3</div>
-        <div class="button">+</div>
-      </div>
+          <div class="buttonRow">
+            <div class="button" onclick="appendCharacter('Math.log10')">log</div>
+            <div class="buttonNum" onclick="appendCharacter(1)">1</div>
+            <div class="buttonNum" onclick="appendCharacter(2)">2</div>
+            <div class="buttonNum" onclick="appendCharacter(3)">3</div>
+            <div class="button" onclick="appendCharacter('+')">+</div>
+          </div>
 
-      <div class="buttonRow">
-        <div class="button">ln</div>
-        <div class="buttonNum">+<sub>/-</sub></div>
-        <div class="buttonNum">0</div>
-        <div class="buttonNum">.</div>
-        <div class="result">=</div>
-      </div>
+          <div class="buttonRow">
+            <div class="button" onclick="appendCharacter('Math.log')">ln</div>
+            <div class="buttonNum" onclick="appendCharacter()">+<sub>/-</sub></div>
+            <div class="buttonNum" onclick="appendCharacter(0)">0</div>
+            <div class="buttonNum" onclick="appendCharacter('.')">.</div>
+            <div class="result" onclick="calculateResult()">=</div>
+          </div>
 
-      <div style="clear: both;"></div>
-    </div>  
+          <div style="clear: both;"></div>
+        </div>  
 
-    <!-- special scripts for integration in MTW gallery - must be placed at the bottom of the HTML after your code -->
-    <script>
- 
- let displayValue = '0';
-      let memoryValue = 0;
-      let operator = '';
-      let waitingForSecondOperand = false;
+        <!-- special scripts for integration in MTW gallery - must be placed at the bottom of the HTML after your code -->
+      <script>
+        let currentInput = '';
 
-      function updateDisplay() {
-        document.getElementById('monitor').innerText = displayValue;
-      }
-
-      function inputDigit(digit) {
-        if (waitingForSecondOperand) {
-          displayValue = digit;
-          waitingForSecondOperand = false;
-        } else {
-          displayValue = displayValue === '0' ? digit : displayValue + digit;
+        function updateDisplay() {
+          document.getElementById('monitor').innerText = currentInput;
         }
-        updateDisplay();
-      }
 
-      function inputDecimal() {
-        if (!displayValue.includes('.')) {
-          displayValue += '.';
+        function appendCharacter(char) {
+          currentInput += char;
           updateDisplay();
         }
-      }
 
-      function performOperation(nextOperator) {
-        const inputValue = parseFloat(displayValue);
-
-        if (operator && waitingForSecondOperand) {
-          operator = nextOperator;
-          return;
+        function clearDisplay() {
+          currentInput = '';
+          updateDisplay();
         }
 
-        if (operator) {
-          const currentValue = parseFloat(memoryValue);
-          const result = calculate(currentValue, inputValue, operator);
-
-          displayValue = String(result);
-          memoryValue = result;
-        } else {
-          memoryValue = inputValue;
+        function deleteLast() {
+          currentInput = currentInput.slice(0, -1);
+          updateDisplay();
         }
 
-        operator = nextOperator;
-        waitingForSecondOperand = true;
-        updateDisplay();
-      }
-
-      function calculate(firstOperand, secondOperand, operation) {
-        switch (operation) {
-          case '+':
-            return firstOperand + secondOperand;
-          case '-':
-            return firstOperand - secondOperand;
-          case '*':
-            return firstOperand * secondOperand;
-          case '/':
-            return firstOperand / secondOperand;
-          default:
-            return secondOperand;
+        function handlePower() {
+          appendCharacter('**');
         }
+
+        function calculateInverse() {
+          try {
+              currentInput = eval(`1 / (${currentInput})`).toString();
+              updateDisplay();
+          } catch (error) {
+              currentInput = 'Error';
+              updateDisplay();
+          }
+        }
+
+        function calculateAbsolute() {
+          try {
+              currentInput = eval(`Math.abs(${currentInput})`).toString();
+              updateDisplay();
+          } catch (error) {
+              currentInput = 'Error';
+              updateDisplay();
+          } 
+        }
+
+        function calculateFactorial() {
+          try {
+              const num = parseInt(currentInput);
+              if (num < 0) {
+                  throw new Error('Cannot calculate factorial of a negative number');
+              }
+
+              let result = 1;
+              for (let i = 2; i <= num; i++) {
+                  result *= i;
+              }
+
+              currentInput = result.toString();
+              updateDisplay();
+          } catch (error) {
+              currentInput = 'Error';
+              updateDisplay();
+          } 
+        }
+
+        function toggleSign() {
+          try {
+              currentInput = eval(`-(${currentInput})`).toString();
+              updateDisplay();
+          } catch (error) {
+              currentInput = 'Error';
+              updateDisplay();
+          } 
+        }
+
+      function calculateResult() {
+          try {
+              currentInput = eval(currentInput).toString();
+              updateDisplay();
+          } catch (error) {
+              currentInput = 'Error';
+              updateDisplay();
+          }
       }
 
-      function clearMemory() {
-        memoryValue = 0;
-        operator = '';
-        waitingForSecondOperand = false;
-        displayValue = '0';
+      let memoryValue = 0;
+
+      function memoryRecall() { ///
+          currentInput = memoryValue.toString();
         updateDisplay();
       }
 
-      function recallMemory() {
-        displayValue = String(memoryValue);
-        updateDisplay();
+      function memoryAdd() {
+          memoryValue += eval(currentInput);
+          clearDisplay();
       }
 
-      function addToMemory() {
-        memoryValue += parseFloat(displayValue);
-        updateDisplay();
+      function memorySubtract() {
+          memoryValue -= eval(currentInput);
+          clearDisplay();
       }
 
-      function subtractFromMemory() {
-        memoryValue -= parseFloat(displayValue);
-        updateDisplay();
+      function memoryStore() {
+          memoryValue = eval(currentInput);
+          clearDisplay();
       }
 
-      function storeInMemory() {
-        memoryValue = parseFloat(displayValue);
-        updateDisplay();
+      function memoryMultiply() {
+          memoryValue *= eval(currentInput);
+          clearDisplay();
       }
+      </script>
 
-      function multiplyMemory() {
-        memoryValue *= parseFloat(displayValue);
-        updateDisplay();
-      }
-    </script>
-    <script src="https://morethanwallet.com/appstore/index.js"></script>
-  </body>
-</html>
+      </body>
+    </html>
